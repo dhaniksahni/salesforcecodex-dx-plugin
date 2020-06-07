@@ -1,0 +1,14 @@
+{
+    "vars": [
+      "apiVersion",
+      "objectName",
+      "entityName"
+    ],
+    "files": [
+      ["constant.cls", "Constant.cls"],
+      ["constant.cls-meta.xml", "constant.cls-meta.xml"],
+      ["selector.cls", "Selector.cls"],
+      ["selector.cls-meta.xml", "Selector.cls-meta.xml"]
+    ],
+    "bundle": false
+  }

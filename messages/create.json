@@ -1,0 +1,10 @@
+{
+    "outputdirFlagDescription": "folder for saving the created files",
+    "nameFlagDescription": "file or bundle name",
+    "templateFlagDescription": "code template name",
+    "varsFlagDescription": "variables required by the template",
+    "errorNoOrgResults": "No results found for the org.",
+    "invaliFolderMessage": "Folder is not correct",
+    "templateObjectDescription":"object name for apex creation"
+  }
+  

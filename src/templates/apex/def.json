@@ -1,0 +1,14 @@
+{
+    "vars": [
+      "apiVersion",
+      "objectName",
+      "entityName"
+    ],
+    "files": [
+      ["apex.cls", ".cls"],
+      ["apexTest.cls", "Test.cls"],
+      ["apex.cls-meta.xml", ".cls-meta.xml"],
+      ["apexTest.cls-meta.xml", "Test.cls-meta.xml"]
+    ],
+    "bundle": false
+  }
