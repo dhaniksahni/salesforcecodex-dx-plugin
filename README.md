@@ -1,4 +1,4 @@
-salesforcecodex-dx-plugin
+## salesforcecodex-dx-plugin
 
 A tool for generating Apex source code from templates. This plugin can generated code for Apex Class, Trigger ,Selector class and it's classes. It can be used for handling development process where developer will use same code structure its apex codes.
 
