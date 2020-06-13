@@ -1,11 +1,8 @@
 {
   "name": "salesforcecodex-dx-plugin",
-  "description": "Salesforce DX Plugin for creating Apex Template",
-  "version": "0.0.2",
+  "version": "0.2.9",
   "author": "Dhanik Lal Sahni",
-  "bugs": {
-    "url": "https://github.com/52000290/salesforcecodex-dx-plugin/issues"
-  },
+  "bugs": "https://github.com/CLI/salesforcecodex-dx-plugin/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -36,10 +33,11 @@
   "files": [
     "/lib",
     "/messages",
+    "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/52000290/salesforcecodex-dx-plugin",
+  "homepage": "https://github.com/CLI/salesforcecodex-dx-plugin",
   "keywords": [
     "sfdx-plugin"
   ],
@@ -48,29 +46,20 @@
     "commands": "./lib/commands",
     "bin": "sfdx",
     "topics": {
-      "code":
-       {
-         "description": "Create Apex code using template."
-       }
+      "hello": {
+        "description": "Commands to say hello."
+      }
     },
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/52000290/salesforcecodex-dx-plugin.git"
-  },
+  "repository": "CLI/salesforcecodex-dx-plugin",
   "scripts": {
     "postpack": "rimraf oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
-  },
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
   }
 }

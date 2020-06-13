@@ -29,10 +29,9 @@ export default class Create extends SfdxCommand {
       const template = this.flags.template;
       const outputdir = this.flags.outputdir;
       const vars = this.flags.vars;
-     
-      let templateFolder = path.join(__dirname, '../../../../templates', template);
+      let templateFolder = path.join(__dirname,'./../../../../templates', template);
       if (!fse.existsSync(templateFolder)) {
-        templateFolder = path.join(__dirname, '../../../templates', template);
+        templateFolder = path.join(__dirname, './../../templates', template);
       }
       let code = new Code();
 

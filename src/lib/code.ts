@@ -114,7 +114,7 @@ export class Code
         }
       });
     
-      let result = 'The following files were created:';
+      let result = 'The following files are created:';
       for (let i = 0; i < filesCreated.length; i++) {
         result += `\n  ${filesCreated[i]}`;
       }

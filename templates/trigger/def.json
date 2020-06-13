@@ -1,0 +1,16 @@
+{
+    "vars": [
+     "apiVersion",
+     "objectName",
+     "objectName"
+    ],
+    "files": [
+      ["triggerHandler.cls", "TriggerHandler.cls"],
+      ["trigger.cls", "Trigger.cls"],
+      ["trigger.cls-meta.xml", "trigger.cls-meta.xml"],
+      ["triggerHandler.cls-meta.xml", "triggerHandler.cls-meta.xml"],
+      ["triggerAction.cls", "Action.cls"],
+      ["triggerAction.cls-meta.xml", "Action.cls-meta.xml"]
+    ],
+    "bundle": false
+  }
