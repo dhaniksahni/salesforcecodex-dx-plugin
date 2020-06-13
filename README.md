@@ -1,77 +1,81 @@
 salesforcecodex-dx-plugin
-=========================
 
+A tool for generating Apex source code from templates. This plugin can generated code for Apex Class, Trigger ,Selector class and it's classes. It can be used for handling development process where developer will use same code structure its apex codes.
 
+## Setup
 
-[![Version](https://img.shields.io/npm/v/salesforcecodex-dx-plugin.svg)](https://npmjs.org/package/salesforcecodex-dx-plugin)
-[![CircleCI](https://circleci.com/gh/CLI/salesforcecodex-dx-plugin/tree/master.svg?style=shield)](https://circleci.com/gh/CLI/salesforcecodex-dx-plugin/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/CLI/salesforcecodex-dx-plugin?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/salesforcecodex-dx-plugin/branch/master)
-[![Codecov](https://codecov.io/gh/CLI/salesforcecodex-dx-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/CLI/salesforcecodex-dx-plugin)
-[![Greenkeeper](https://badges.greenkeeper.io/CLI/salesforcecodex-dx-plugin.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/CLI/salesforcecodex-dx-plugin/badge.svg)](https://snyk.io/test/github/CLI/salesforcecodex-dx-plugin)
-[![Downloads/week](https://img.shields.io/npm/dw/salesforcecodex-dx-plugin.svg)](https://npmjs.org/package/salesforcecodex-dx-plugin)
-[![License](https://img.shields.io/npm/l/salesforcecodex-dx-plugin.svg)](https://github.com/CLI/salesforcecodex-dx-plugin/blob/master/package.json)
+### Install from source
 
-<!-- toc -->
-* [Debugging your plugin](#debugging-your-plugin)
-<!-- tocstop -->
-<!-- install -->
-<!-- usage -->
-```sh-session
-$ npm install -g salesforcecodex-dx-plugin
-$ sfdx COMMAND
-running command...
-$ sfdx (-v|--version|version)
-salesforcecodex-dx-plugin/0.2.9 win32-x64 node-v12.10.0
-$ sfdx --help [COMMAND]
-USAGE
-  $ sfdx COMMAND
-...
-```
-<!-- usagestop -->
-<!-- commands -->
-* [`sfdx scdx:code:create [-t <string>] [-d <string>] [-v <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-scdxcodecreate--t-string--d-string--v-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+1. Install the Salesforce CLI.
 
-## `sfdx scdx:code:create [-t <string>] [-d <string>] [-v <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+2. Clone the repository: `git clone https://github.com/dhaniksahni/salesforcecodex-dx-plugin.git`
+
+3. Install npm modules: `npm install`
+
+4. Link the plugin: `sfdx plugins:link .`
+
+### Install as plugin
+
+1. Install plugin: `sfdx plugins:install salesforcecodex-dx-plugin`
+
+## Usage
+
+The basic usage of the plugin is straightforward.
 
 ```
-USAGE
-  $ sfdx scdx:code:create [-t <string>] [-d <string>] [-v <string>] [--json] [--loglevel 
-  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+Usage: sfdx scdx:code:create
 
-OPTIONS
-  -d, --outputdir=outputdir                                                         folder for saving the created files
-  -t, --template=template                                                           code template name
-  -v, --vars=vars                                                                   variables required by the template
-  --json                                                                            format output as json
+create source from a template 
 
-  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
-                                                                                    this command invocation
+ -d, --outputdir OUTPUTDIR # folder for saving the created files
+ -t, --template TEMPLATE   # code template name
+ -v, --vars VARS           # variables required by the template
+
+ ```
+
+1. Creating a Apex class: `sfdx scdx:code:create -t apex  -d ./test/t1 -v apiVersion=48.0,objectName=ApplicationService`
+
+This command will create a class in the current directory.
+
+```
+ The following files are created:
+  test\t1\ApplicationService.cls
+  test\t1\ApplicationServiceTest.cls
+  test\t1\ApplicationService.cls-meta.xml
+  test\t1\ApplicationServiceTest.cls-meta.xml
+
+```
+2. Creating a Apex Trigger: `sfdx scdx:code:create -t trigger  -d ./test/t1 -v apiVersion=48.0,objectName=Brand__c`
+
+This command will create a class in the current directory.
+
+```
+The following files are created:
+  test\t1\BrandTriggerHandler.cls
+  test\t1\BrandTrigger.cls
+  test\t1\Brandtrigger.cls-meta.xml
+  test\t1\BrandtriggerHandler.cls-meta.xml
+  test\t1\BrandAction.cls
+  test\t1\BrandAction.cls-meta.xml
+
 ```
 
-_See code: [lib\commands\scdx\code\create.js](https://github.com/CLI/salesforcecodex-dx-plugin/blob/v0.2.9/lib\commands\scdx\code\create.js)_
-<!-- commandsstop -->
-<!-- debugging-your-plugin -->
-# Debugging your plugin
-We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
+3. Creating a Selector class: `sfdx scdx:code:create -t selector  -d ./test/t1 -v apiVersion=48.0,objectName=Brand__c`
 
-To debug the `hello:org` command: 
-1. Start the inspector
-  
-If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch: 
-```sh-session
-$ sfdx hello:org -u myOrg@example.com --dev-suspend
+This command will create a class in the current directory.
+
 ```
-  
-Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
-```sh-session
-$ NODE_OPTIONS=--inspect-brk bin/run hello:org -u myOrg@example.com
+The following files are created:
+  test\t1\BrandConstant.cls
+  test\t1\Brandconstant.cls-meta.xml
+  test\t1\BrandSelector.cls
+  test\t1\BrandSelector.cls-meta.xml
+
 ```
 
-2. Set some breakpoints in your command code
-3. Click on the Debug icon in the Activity Bar on the side of VS Code to open up the Debug view.
-4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
-5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program. 
-6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-<br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
-Congrats, you are debugging!
+You can specify a different output directory with `-d|--outputdir`. If you're unsure of the `VARS` required, you can drop the `-v|--vars` and it will output the required fields.
+
+
+Templates:
+
+Templates for these classes are available at https://github.com/dhaniksahni/salesforcecodex-dx-plugin/tree/master/templates
